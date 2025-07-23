@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tình Yêu Lung Linh</title>
+  <style>
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(120deg, #ff9a9e, #fad0c4, #fcb69f, #a1c4fd, #c2e9fb, #ffdde1, #d6498b);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+    }
+
+    @keyframes gradientBG {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .neon-text {
+      text-align: center;
+      margin-top: 300px;
+      font-size: 3.5rem;
+      font-family: 'Brush Script MT', cursive;
+      color: #fff;
+      text-shadow:
+        0 0 5px #ff6b81,
+        0 0 10px #ff6b81,
+        0 0 20px #ff6b81,
+        0 0 40px #ff6b81,
+        0 0 80px #ff6b81;
+      letter-spacing: 2px;
+      animation: neonPulse 2s infinite alternate;
+    }
+
+    @keyframes neonPulse {
+      from {
+        text-shadow:
+          0 0 5px #ff6b81,
+          0 0 10px #ff6b81,
+          0 0 20px #ff6b81,
+          0 0 40px #ff6b81,
+          0 0 80px #ff6b81;
+      }
+
+      to {
+        text-shadow:
+          0 0 10px #fff,
+          0 0 20px #fff,
+          0 0 40px #ff6b81,
+          0 0 80px #ff6b81,
+          0 0 160px #ff6b81;
+      }
+    }
+
+    .love-message-container {
+      position: relative;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 30px;
+      margin-bottom: 10px;
+      z-index: 3;
+    }
+
+    .love-message {
+      font-size: 1.5rem;
+      color: #b22222;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 20px;
+      padding: 18px 32px;
+      box-shadow: 0 4px 18px rgba(255, 105, 180, 0.15);
+      text-align: center;
+      font-family: 'Segoe Script', cursive;
+      position: relative;
+      z-index: 4;
+      animation: messageFadeIn 2s;
+    }
+
+    @keyframes messageFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .flying-heart,
+    .flying-img {
+      position: fixed;
+      left: 0;
+      top: 0;
+      pointer-events: none;
+      z-index: 10;
+      opacity: 0.8;
+      animation: flyHeartFull 4.5s linear forwards;
+      will-change: transform, opacity;
+    }
+
+    .flying-heart {
+      font-size: 2rem;
+    }
+
+    .flying-img img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px #ff6b81;
+      object-fit: cover;
+      border: 2px solid #fff;
+      background: #fff;
+      display: block;
+    }
+
+    @keyframes flyHeartFull {
+      0% {
+        transform: translateY(-50px) scale(1) rotate(-10deg);
+        opacity: 0.8;
+      }
+
+      20% {
+        opacity: 1;
+      }
+
+      90% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(110vh) scale(1.4) rotate(20deg);
+        opacity: 0;
+      }
+    }
+
+    /* Ẩn các thành phần chuyển ảnh */
+    .upload-btn,
+    .image-flow-container,
+    #imageInput,
+    .floating-hearts,
+    .heart {
+      display: none !important;
+    }
+
+    /* Firework effect */
+    .firework {
+      position: absolute;
+      pointer-events: none;
+      border-radius: 50%;
+      width: 8px;
+      height: 8px;
+      background: #fff;
+      box-shadow: 0 0 10px 2px #ff6b81, 0 0 20px 8px #fff0f5;
+      animation: explode 0.8s ease-out forwards;
+      z-index: 999;
+    }
+
+    @keyframes explode {
+      0% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      80% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+        transform: scale(2);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="neon-text">Tình Yêu Lung Linh</div>
+
+  <div class="love-message-container">
+    <div class="love-message">
+      Gửi đến người tôi thương,<br>
+      Mong rằng tình yêu của chúng ta sẽ luôn rực rỡ như những trái tim bay bổng này! 💖
+    </div>
+  </div>
+  <div id="img-sources" style="display:none;">
+    <img
+      src="https://cdn11.dienmaycholon.vn/filewebdmclnew/public/userupload/files/Image%20FP_2024/avatar-cute-3.jpg" />
+  </div>
+
+  <script>
+    // Firework effect on click
+    document.body.addEventListener('click', function (e) {
+      for (let i = 0; i < 16; i++) {
+        createFirework(e.clientX, e.clientY, i * (360 / 16));
+      }
+    });
+    function createFirework(x, y, angle) {
+      const fw = document.createElement('div');
+      fw.className = 'firework';
+      fw.style.left = x + 'px';
+      fw.style.top = y + 'px';
+      document.body.appendChild(fw);
+      const dist = 80 + Math.random() * 40;
+      const rad = angle * Math.PI / 180;
+      fw.animate([
+        { transform: 'translate(0,0) scale(1)', opacity: 1 },
+        { transform: `translate(${Math.cos(rad) * dist}px,${Math.sin(rad) * dist}px) scale(2)`, opacity: 0 }
+      ], {
+        duration: 800,
+        easing: 'ease-out'
+      });
+      setTimeout(() => fw.remove(), 800);
+    }
+
+    // Hiệu ứng trái tim và ảnh chảy từ trên xuống toàn màn hình
+    const imgSrcList = Array.from(document.querySelectorAll('#img-sources img')).map(img => img.src);
+
+    function createFallingHeartOrImg() {
+      // 70% là trái tim, 30% là ảnh
+      if (Math.random() < 0.7) {
+        const heart = document.createElement('span');
+        heart.className = 'flying-heart';
+        heart.innerHTML = '💗';
+        heart.style.left = Math.random() * 98 + 'vw';
+        heart.style.fontSize = (Math.random() * 2 + 1.2) + 'rem';
+        const duration = Math.random() * 2 + 3.5;
+        heart.style.animationDuration = duration + 's';
+        heart.style.animationDelay = (Math.random() * 1.5) + 's';
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), duration * 1000 + 500);
+      } else if (imgSrcList.length > 0) {
+        const imgDiv = document.createElement('span');
+        imgDiv.className = 'flying-img';
+        imgDiv.style.left = Math.random() * 98 + 'vw';
+        const size = Math.random() * 28 + 32; // 32px - 60px
+        imgDiv.style.width = size + 'px';
+        imgDiv.style.height = size + 'px';
+        const duration = Math.random() * 2 + 3.5;
+        imgDiv.style.animationDuration = duration + 's';
+        imgDiv.style.animationDelay = (Math.random() * 1.5) + 's';
+        const img = document.createElement('img');
+        img.src = imgSrcList[Math.floor(Math.random() * imgSrcList.length)];
+        img.style.width = "100%";
+        img.style.height = "100%";
+        imgDiv.appendChild(img);
+        document.body.appendChild(imgDiv);
+        setTimeout(() => imgDiv.remove(), duration * 1000 + 500);
+      }
+    }
+    setInterval(createFallingHeartOrImg, 180);
+  </script>
+</body>
+
+</html>
