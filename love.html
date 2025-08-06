@@ -202,9 +202,17 @@
     </div>
   </div>
   <div id="img-sources" style="display:none;">
-    <img
-      src="https://cdn11.dienmaycholon.vn/filewebdmclnew/public/userupload/files/Image%20FP_2024/avatar-cute-3.jpg" />
+      <img src="./anh/anh2.jpg" alt="">
+    <img src="./anh/anh4.jpg" alt="">
+    <img src="./anh/anh7.jpg" alt="">
+    <img src="./anh/anh8.jpg" alt="">
+    <img src="./anh/anh9.jpg" alt="">
+    <img src="./anh/anh10.jpg" alt="">
+    <img src="./anh/anh11.jpg" alt="">
+    <img src="./anh/anh12.jpg" alt="">\
   </div>
+  
+
 
   <script>
     // Firework effect on click
@@ -267,6 +275,25 @@
       }
     }
     setInterval(createFallingHeartOrImg, 180);
+     function spawnIcon() {
+    const icon = document.createElement('div');
+    icon.className = 'icon';
+
+    // Tuỳ chọn icon bay
+    const icons = ['♥️'];
+    icon.innerHTML = icons[Math.floor(Math.random() * icons.length)];
+
+    document.body.appendChild(icon);
+
+    setTimeout(() => {
+      icon.classList.add('fly');
+    }, 10);
+
+    setTimeout(() => {
+      icon.remove();
+    }, 2200);
+  }
+
   </script>
 </body>
 
