@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tình Yêu Của Anh</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background-attachment: fixed;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow-x: hidden;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    /* Floating hearts animation */
+    .heart {
+        position: absolute;
+        color: rgba(255, 192, 203, 0.7);
+        font-size: 20px;
+        animation: float 6s infinite ease-in-out;
+        pointer-events: none;
+    }
+
+    .heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+    .heart:nth-child(2) { left: 20%; animation-delay: 1s; font-size: 16px; }
+    .heart:nth-child(3) { left: 30%; animation-delay: 2s; font-size: 24px; }
+    .heart:nth-child(4) { right: 30%; animation-delay: 3s; font-size: 18px; }
+    .heart:nth-child(5) { right: 20%; animation-delay: 4s; }
+    .heart:nth-child(6) { right: 10%; animation-delay: 5s; font-size: 22px; }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+        10%, 90% { opacity: 1; }
+        50% { transform: translateY(-100px) rotate(180deg); }
+    }
+
+    .container {
+        max-width: 900px;
+        width: 90%;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        padding: 60px 40px;
+        margin: 20px;
+        position: relative;
+        border: 2px solid rgba(255, 192, 203, 0.3);
+        animation: slideIn 1s ease-out;
+    }
+
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .header {
+        text-align: center;
+        margin-bottom: 40px;
+        position: relative;
+    }
+
+    .title {
+        font-family: 'Dancing Script', cursive;
+        font-size: 3em;
+        color: #d63384;
+        font-weight: 700;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        animation: heartbeat 2s infinite;
+    }
+
+    @keyframes heartbeat {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+    }
+
+    .subtitle {
+        font-size: 1.2em;
+        color: #6c757d;
+        font-style: italic;
+        margin-bottom: 30px;
+    }
+
+    .content {
+        font-size: 1.1em;
+        line-height: 1.8;
+        color: #444;
+        text-align: justify;
+        margin-bottom: 40px;
+        position: relative;
+    }
+
+    .content p {
+        margin-bottom: 20px;
+        padding: 0 20px;
+    }
+
+    .highlight {
+        background: linear-gradient(120deg, #ff9a9e 0%, #fecfef 100%);
+        padding: 20px;
+        border-radius: 15px;
+        border-left: 4px solid #d63384;
+        margin: 25px 0;
+        font-style: italic;
+        box-shadow: 0 5px 15px rgba(214, 51, 132, 0.2);
+    }
+
+    .quote-mark {
+        font-family: 'Dancing Script', cursive;
+        font-size: 2em;
+        color: #d63384;
+        font-weight: bold;
+    }
+
+    .next-section {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+        animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+        40% { transform: translateY(-10px); }
+        60% { transform: translateY(-5px); }
+    }
+
+    .next-button {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        padding: 18px 40px;
+        font-size: 1.2em;
+        font-weight: 600;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        position: relative;
+        overflow: hidden;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .next-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        transition: left 0.5s;
+    }
+
+    .next-button:hover::before {
+        left: 100%;
+    }
+
+    .next-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 35px rgba(102, 126, 234, 0.6);
+    }
+
+    .decorative-element {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(45deg, #ff9a9e, #fecfef);
+        border-radius: 50%;
+        opacity: 0.7;
+        animation: pulse 3s infinite;
+    }
+
+    .decorative-element:nth-child(2) {
+        top: auto;
+        bottom: -15px;
+        left: -15px;
+        width: 30px;
+        height: 30px;
+        animation-delay: 1.5s;
+    }
+
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); opacity: 0.7; }
+        50% { transform: scale(1.2); opacity: 1; }
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+        .container {
+            padding: 40px 25px;
+            margin: 10px;
+        }
+        
+        .title {
+            font-size: 2.2em;
+        }
+        
+        .content {
+            font-size: 1em;
+        }
+        
+        .content p {
+            padding: 0 10px;
+        }
+        
+        .next-button {
+            padding: 15px 30px;
+            font-size: 1.1em;
+        }
+    }
+</style>
+
+<body>
+    <!-- Floating hearts -->
+    <div class="heart">💖</div>
+    <div class="heart">💕</div>
+    <div class="heart">💗</div>
+    <div class="heart">💖</div>
+    <div class="heart">💕</div>
+    <div class="heart">💗</div>
+
+    <div class="container">
+        <div class="decorative-element"></div>
+        <div class="decorative-element"></div>
+        
+        <div class="header">
+            <h1 class="title">Lời Tỏ Tình Của Anh</h1>
+            <p class="subtitle">Những điều anh muốn nói với em...</p>
+        </div>
+
+        <div class="content">
+            <p><span class="quote-mark">"</span>Cảm ơn em vì đã luôn lắng nghe và đồng hành cùng anh suốt thời gian qua.</p>
+            
+            <div class="highlight">
+                <p>Từ lần đầu có cơ duyên gặp em – ngày 24/7/2025 – anh chỉ nghĩ đơn giản là quen biết để có người chơi game chung, nói chuyện cho vui thôi.</p>
+            </div>
+
+            <p>Nhưng sau lần gặp mặt đầu tiên vào ngày 2/8, suy nghĩ của anh đã thay đổi. Nói cách khác là… anh bắt đầu có cảm tình với em rồi.</p>
+
+            <div class="highlight">
+                <p>Ấn tượng lớn nhất khiến anh từ việc xem em là bạn sang muốn tán em, chính là chiều cao và tính cách của em. Nó hoàn toàn khác xa với những gì anh tưởng tượng – khác xa ở đây là theo hướng tích cực nha, không phải ngoại hình hay khuôn mặt, mà là chiều cao và cách em cư xử.</p>
+            </div>
+
+            <p>Anh nói rõ thế để em không nghĩ là em "ảo" hơn khi nhìn qua mạng nhé 😊<span class="quote-mark">"</span></p>
+
+            <p style="text-align: center; font-style: italic; color: #d63384; font-weight: 500;">
+                Vậy nên anh đã quyết định viết một trang web nhỏ để bày tỏ tình cảm của mình với em.
+            </p>
+
+            <p style="text-align: center; color: #6c757d;">
+                Đọc đến đây có lẽ hơi dài nhưng còn một xíu nữa thôi là xong rồi...
+            </p>
+        </div>
+
+        <div class="next-section">
+            <button class="next-button" onclick="window.location.href='index3.html'">
+                💖 Tiếp tục hành trình 💖
+            </button>
+        </div>
+    </div>
+</body>
+
+</html>
