@@ -6,7 +6,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#667eea">
-    <title>Chào Mừng Em Yêu</title>
+    <title>Dành riêng cho mày</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -310,57 +310,147 @@
         50% { transform: translateY(-20px) rotate(180deg); }
     }
 
-    /* Mobile-first responsive design */
-    @media (max-width: 480px) {
+    /* Mobile-first responsive design - Ultra compact for 400px */
+    @media (max-width: 400px) {
         body {
-            padding: 10px;
+            padding: 5px;
+            font-size: 14px;
         }
         
         .container {
-            width: 95%;
-            padding: 30px 20px;
-            margin: 10px auto;
-            border-radius: 20px;
-            min-height: calc(100vh - 20px);
+            width: 98%;
+            padding: 20px 15px;
+            margin: 5px auto;
+            border-radius: 15px;
+            min-height: calc(100vh - 10px);
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
         
         .main-title {
-            font-size: 2.5em;
-            line-height: 1.2;
-            margin-bottom: 25px;
+            font-size: 2.2em;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            word-break: break-word;
         }
         
         .welcome-text {
-            font-size: 1.2em;
-            line-height: 1.4;
-            margin-bottom: 20px;
-            padding: 0 10px;
+            font-size: 1.1em;
+            line-height: 1.3;
+            margin-bottom: 18px;
+            padding: 0 5px;
         }
         
         .curiosity-text {
-            font-size: 1.1em;
-            line-height: 1.4;
-            margin-bottom: 35px;
-            padding: 0 10px;
+            font-size: 1em;
+            line-height: 1.3;
+            margin-bottom: 30px;
+            padding: 0 5px;
         }
         
         .images-container {
             flex-direction: column;
-            gap: 25px;
-            margin: 35px 0;
+            gap: 20px;
+            margin: 30px 0;
+            align-items: center;
         }
         
         .cute-image {
-            width: 90px;
-            height: 90px;
+            width: 80px;
+            height: 80px;
+            border-width: 2px;
+        }
+        
+        .center-decoration {
+            font-size: 25px;
+            position: relative;
+            transform: none;
+            left: auto;
+            top: auto;
+            margin: 8px 0;
+        }
+        
+        .continue-button {
+            padding: 14px 25px;
+            font-size: 1em;
+            width: 90%;
+            max-width: 250px;
+            margin: 0 auto;
+            border-radius: 25px;
+        }
+        
+        .continue-button::after {
+            right: 15px;
+            font-size: 1em;
+        }
+        
+        .floating-element {
+            font-size: 16px;
+        }
+        
+        .decorative-element {
+            width: 20px;
+            height: 20px;
+            display: none; /* Hide on very small screens */
+        }
+        
+        /* Reduce floating elements on small screens */
+        .floating-element:nth-child(n+4) {
+            display: none;
+        }
+    }
+
+    @media (min-width: 401px) and (max-width: 480px) {
+        body {
+            padding: 8px;
+        }
+        
+        .container {
+            width: 96%;
+            padding: 25px 18px;
+            margin: 8px auto;
+            border-radius: 18px;
+            min-height: calc(100vh - 16px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .main-title {
+            font-size: 2.4em;
+            line-height: 1.2;
+            margin-bottom: 22px;
+        }
+        
+        .welcome-text {
+            font-size: 1.15em;
+            line-height: 1.4;
+            margin-bottom: 20px;
+            padding: 0 8px;
+        }
+        
+        .curiosity-text {
+            font-size: 1.05em;
+            line-height: 1.4;
+            margin-bottom: 32px;
+            padding: 0 8px;
+        }
+        
+        .images-container {
+            flex-direction: column;
+            gap: 22px;
+            margin: 32px 0;
+        }
+        
+        .cute-image {
+            width: 85px;
+            height: 85px;
             border-width: 3px;
         }
         
         .center-decoration {
-            font-size: 30px;
+            font-size: 28px;
             position: relative;
             transform: none;
             left: auto;
@@ -369,25 +459,25 @@
         }
         
         .continue-button {
-            padding: 16px 35px;
-            font-size: 1.1em;
-            width: 80%;
-            max-width: 280px;
+            padding: 15px 30px;
+            font-size: 1.05em;
+            width: 85%;
+            max-width: 260px;
             margin: 0 auto;
         }
         
         .continue-button::after {
-            right: 20px;
-            font-size: 1.1em;
+            right: 18px;
+            font-size: 1.05em;
         }
         
         .floating-element {
-            font-size: 18px;
+            font-size: 17px;
         }
         
         .decorative-element {
-            width: 25px;
-            height: 25px;
+            width: 22px;
+            height: 22px;
         }
     }
 
@@ -466,39 +556,96 @@
     }
 
     /* Mobile performance optimizations */
-    @media (max-width: 768px) {
+    @media (max-width: 400px) {
         .floating-element {
-            animation-duration: 10s; /* Slower animation for mobile */
+            animation-duration: 12s; /* Even slower for ultra small screens */
         }
         
         .heartbeat {
-            animation-duration: 3s; /* Gentler animation */
+            animation-duration: 4s; /* Very gentle animation */
         }
         
-        /* Reduce animation complexity on mobile */
+        /* Minimize animations on very small screens */
         .decorative-element {
             animation: none;
-            opacity: 0.3;
+            opacity: 0;
         }
         
-        /* Simplify backdrop blur for better performance */
+        .bounce {
+            animation-duration: 4s; /* Slower bounce */
+        }
+        
+        /* Ultra simplified backdrop blur */
         .container {
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(5px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Optimize text rendering */
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
     }
 
-    /* Prevent zoom on input focus */
-    @media (max-width: 768px) {
-        input, select, textarea {
+    @media (min-width: 401px) and (max-width: 480px) {
+        .floating-element {
+            animation-duration: 10s;
+        }
+        
+        .heartbeat {
+            animation-duration: 3s;
+        }
+        
+        .decorative-element {
+            animation: none;
+            opacity: 0.2;
+        }
+        
+        .container {
+            backdrop-filter: blur(6px);
+        }
+    }
+
+    /* Touch improvements for small screens */
+    @media (max-width: 400px) and (hover: none) and (pointer: coarse) {
+        .continue-button {
+            min-height: 50px;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .cute-image:active {
+            transform: scale(0.9);
+            transition: transform 0.1s ease;
+        }
+        
+        .continue-button:active {
+            transform: scale(0.95);
+            transition: transform 0.1s ease;
+        }
+        
+        /* Improve scroll performance */
+        body {
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+        }
+    }
+
+    /* Prevent zoom on input focus for small screens */
+    @media (max-width: 400px) {
+        input, select, textarea, button {
             font-size: 16px !important;
         }
     }
 
-    /* Safe area for notch devices */
-    @supports (padding: max(0px)) {
-        .container {
-            padding-top: max(60px, env(safe-area-inset-top) + 20px);
-            padding-bottom: max(60px, env(safe-area-inset-bottom) + 20px);
+    /* Ultra safe area for very small notch devices */
+    @media (max-width: 400px) {
+        @supports (padding: max(0px)) {
+            .container {
+                padding-top: max(20px, env(safe-area-inset-top) + 10px);
+                padding-bottom: max(20px, env(safe-area-inset-bottom) + 10px);
+            }
         }
     }
 </style>
