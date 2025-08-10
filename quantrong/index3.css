@@ -175,6 +175,7 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     z-index: 9999;
     text-align: center;
+    width: 80%;
     max-width: 500px;
     animation: popIn 0.5s ease-out;
   }
@@ -411,7 +412,7 @@
     }
   }
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 400px) {
     .neon-text {
       font-size: 2rem;
       /* Giảm kích thước tiêu đề */
