@@ -1,386 +1,457 @@
-  
-    body,
-    html {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(120deg, #ff9a9e, #fad0c4, #fcb69f, #a1c4fd, #c2e9fb, #ffdde1, #d6498b);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
+
+  body,
+  html {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    overflow-x: hidden;
+    /* Ẩn cuộn ngang */
+    overflow-y: auto;
+    /* Cho phép cuộn dọc */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(120deg, #ff9a9e, #fad0c4, #fcb69f, #a1c4fd, #c2e9fb, #ffdde1, #d6498b);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+  }
+
+
+  body.sad-mode {
+    background: linear-gradient(120deg, #2c3e50, #34495e, #7f8c8d, #95a5a6, #bdc3c7, #ecf0f1);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+  }
+
+  @keyframes gradientBG {
+    0% {
+      background-position: 0% 50%;
     }
 
-    body.sad-mode {
-      background: linear-gradient(120deg, #2c3e50, #34495e, #7f8c8d, #95a5a6, #bdc3c7, #ecf0f1);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
+    50% {
+      background-position: 100% 50%;
     }
 
-    @keyframes gradientBG {
-      0% {
-        background-position: 0% 50%;
-      }
-
-      50% {
-        background-position: 100% 50%;
-      }
-
-      100% {
-        background-position: 0% 50%;
-      }
+    100% {
+      background-position: 0% 50%;
     }
+  }
 
-    .neon-text {
-      text-align: center;
-      margin-top: 100px;
-      font-size: 3.5rem;
-      font-family: 'Brush Script MT', cursive;
-      color: #fff;
+  .neon-text {
+    text-align: center;
+    margin-top: 100px;
+    font-size: 3.5rem;
+    font-family: 'Brush Script MT', cursive;
+    color: #fff;
+    text-shadow:
+      0 0 5px #ff6b81,
+      0 0 10px #ff6b81,
+      0 0 20px #ff6b81,
+      0 0 40px #ff6b81,
+      0 0 80px #ff6b81;
+    letter-spacing: 2px;
+    animation: neonPulse 2s infinite alternate;
+  }
+
+  @keyframes neonPulse {
+    from {
       text-shadow:
         0 0 5px #ff6b81,
         0 0 10px #ff6b81,
         0 0 20px #ff6b81,
         0 0 40px #ff6b81,
         0 0 80px #ff6b81;
-      letter-spacing: 2px;
-      animation: neonPulse 2s infinite alternate;
     }
 
-    @keyframes neonPulse {
-      from {
-        text-shadow:
-          0 0 5px #ff6b81,
-          0 0 10px #ff6b81,
-          0 0 20px #ff6b81,
-          0 0 40px #ff6b81,
-          0 0 80px #ff6b81;
-      }
+    to {
+      text-shadow:
+        0 0 10px #fff,
+        0 0 20px #fff,
+        0 0 40px #ff6b81,
+        0 0 80px #ff6b81,
+        0 0 160px #ff6b81;
+    }
+  }
 
-      to {
-        text-shadow:
-          0 0 10px #fff,
-          0 0 20px #fff,
-          0 0 40px #ff6b81,
-          0 0 80px #ff6b81,
-          0 0 160px #ff6b81;
-      }
+  .love-message-container {
+    position: relative;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    z-index: 9999;
+  }
+
+  .love-message {
+    font-size: 1.5rem;
+    color: #b22222;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+    padding: 18px 32px;
+    box-shadow: 0 4px 18px rgba(255, 105, 180, 0.15);
+    text-align: center;
+    font-family: 'Segoe Script', cursive;
+    position: relative;
+    z-index: 4;
+    animation: messageFadeIn 2s;
+  }
+
+  @keyframes messageFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
     }
 
-    .love-message-container {
-      position: relative;
-      width: 100vw;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 30px;
-      margin-bottom: 20px;
-      z-index: 9999;
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Buttons Container */
+  .buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+    z-index: 9999;
+    position: relative;
+  }
+
+  .love-button {
+    padding: 15px 35px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    z-index: 9999;
+  }
+
+  .love-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn-yes {
+    background: linear-gradient(45deg, #ff6b81, #ff8a80, #ff7043);
+    color: white;
+    box-shadow: 0 5px 15px rgba(255, 107, 129, 0.4);
+  }
+
+  .btn-yes:hover {
+    background: linear-gradient(45deg, #ff5722, #ff6b81, #ff8a65);
+    box-shadow: 0 8px 20px rgba(255, 107, 129, 0.6);
+  }
+
+  .btn-no {
+    background: linear-gradient(45deg, #78909c, #90a4ae, #b0bec5);
+    color: white;
+    box-shadow: 0 5px 15px rgba(120, 144, 156, 0.4);
+  }
+
+  .btn-no:hover {
+    background: linear-gradient(45deg, #607d8b, #78909c, #90a4ae);
+    box-shadow: 0 8px 20px rgba(120, 144, 156, 0.6);
+  }
+
+  /* Response Messages */
+  .response-message {
+    display: none;
+    margin-top: 200px;
+    margin-left: 50%;
+    
+
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    text-align: center;
+    max-width: 500px;
+    animation: popIn 0.5s ease-out;
+  }
+
+  @keyframes popIn {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.5);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  .response-message h3 {
+    color: #ff6b81;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+  }
+
+  .response-message p {
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+
+  .sad-response h3 {
+    color: #78909c;
+  }
+
+  .flying-heart,
+  .flying-img {
+    position: fixed;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0.8;
+    animation: flyHeartFull 4.5s linear forwards;
+    will-change: transform, opacity;
+  }
+
+  .flying-heart {
+    font-size: 2rem;
+  }
+
+  .flying-img img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px #ff6b81;
+    object-fit: cover;
+    border: 2px solid #fff;
+    background: #fff;
+    display: block;
+  }
+
+  @keyframes flyHeartFull {
+    0% {
+      transform: translateY(-50px) scale(1) rotate(-10deg);
+      opacity: 0.8;
+    }
+
+    20% {
+      opacity: 1;
+    }
+
+    90% {
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateY(110vh) scale(1.4) rotate(20deg);
+      opacity: 0;
+    }
+  }
+
+  /* Ẩn các thành phần chuyển ảnh */
+  .upload-btn,
+  .image-flow-container,
+  #imageInput,
+  .floating-hearts,
+  .heart {
+    display: none !important;
+  }
+
+  /* Firework effect */
+  .firework {
+    position: absolute;
+    pointer-events: none;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    box-shadow: 0 0 10px 2px #ff6b81, 0 0 20px 8px #fff0f5;
+    animation: explode 0.8s ease-out forwards;
+    z-index: 999;
+  }
+
+  @keyframes explode {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    80% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+      transform: scale(2);
+    }
+  }
+
+  /* Enhanced Firework Effects */
+  .celebration-firework {
+    position: absolute;
+    bottom: 0;
+    width: 6px;
+    height: 25px;
+    animation: celebrationShoot 1.2s ease-out forwards;
+    z-index: 1;
+  }
+
+  @keyframes celebrationShoot {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateY(var(--height));
+      opacity: 0;
+    }
+  }
+
+  .celebration-center {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: white;
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    animation: celebrationFadeCenter 0.3s linear forwards;
+    z-index: 1;
+  }
+
+  @keyframes celebrationFadeCenter {
+    0% {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    100% {
+      opacity: 0.5;
+      transform: translate(-50%, -50%) scale(1.5);
+    }
+  }
+
+  .celebration-ray {
+    position: absolute;
+    width: 2px;
+    height: 0px;
+    background: linear-gradient(to bottom, currentColor, transparent);
+    border-radius: 0;
+    opacity: 1;
+    transform-origin: top center;
+    animation: realisticStretch 2s ease-out forwards;
+    filter: drop-shadow(0 0 3px currentColor);
+    z-index: 1;
+  }
+
+  @keyframes realisticStretch {
+    0% {
+      height: 0px;
+      opacity: 1;
+      transform: rotate(var(--angle)) scaleY(0);
+    }
+
+    20% {
+      height: var(--length);
+      opacity: 1;
+      transform: rotate(var(--angle)) scaleY(1);
+    }
+
+    40% {
+      height: var(--length);
+      opacity: 0.9;
+      transform: rotate(var(--angle)) scaleY(1) translateY(10px);
+    }
+
+    70% {
+      height: calc(var(--length) * 0.8);
+      opacity: 0.6;
+      transform: rotate(var(--angle)) scaleY(0.8) translateY(25px);
+    }
+
+    100% {
+      height: calc(var(--length) * 0.3);
+      opacity: 0;
+      transform: rotate(var(--angle)) scaleY(0.3) translateY(40px);
+    }
+  }
+
+  .spark-particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: currentColor;
+    border-radius: 50%;
+    opacity: 1;
+    animation: sparkFall 1.5s ease-in forwards;
+    z-index: 1;
+  }
+
+  @keyframes sparkFall {
+    0% {
+      opacity: 1;
+      transform: translateY(0px) translateX(0px) scale(1);
+    }
+
+    50% {
+      opacity: 0.8;
+      transform: translateY(30px) translateX(var(--drift-x)) scale(0.8);
+    }
+
+    100% {
+      opacity: 0;
+      transform: translateY(80px) translateX(var(--drift-x-end)) scale(0.3);
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    .neon-text {
+      font-size: 2rem;
+      /* Giảm kích thước tiêu đề */
+      margin-top: 150px;
     }
 
     .love-message {
-      font-size: 1.5rem;
-      color: #b22222;
-      background: rgba(255, 255, 255, 0.7);
-      border-radius: 20px;
-      padding: 18px 32px;
-      box-shadow: 0 4px 18px rgba(255, 105, 180, 0.15);
-      text-align: center;
-      font-family: 'Segoe Script', cursive;
-      position: relative;
-      z-index: 4;
-      animation: messageFadeIn 2s;
+      font-size: 1rem;
+      /* Giảm kích thước thông điệp */
+      padding: 12px 20px;
     }
 
-    @keyframes messageFadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Buttons Container */
     .buttons-container {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 30px;
-      z-index: 9999;
-      position: relative;
+      flex-direction: column;
+      /* Nút xếp dọc */
+      gap: 15px;
     }
 
     .love-button {
-      padding: 15px 35px;
-      font-size: 1.2rem;
-      font-weight: bold;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      position: relative;
-      overflow: hidden;
-      z-index: 9999;
+      margin: auto;
+      font-size: 1rem;
+      padding: 10px 25px;
+      width: 80%;
+      max-width: 250px;
     }
+      .response-message {
+    display: none;
+    margin-top: 200px;
+    margin-left: 50%;
+    
 
-    .love-button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    }
-
-    .btn-yes {
-      background: linear-gradient(45deg, #ff6b81, #ff8a80, #ff7043);
-      color: white;
-      box-shadow: 0 5px 15px rgba(255, 107, 129, 0.4);
-    }
-
-    .btn-yes:hover {
-      background: linear-gradient(45deg, #ff5722, #ff6b81, #ff8a65);
-      box-shadow: 0 8px 20px rgba(255, 107, 129, 0.6);
-    }
-
-    .btn-no {
-      background: linear-gradient(45deg, #78909c, #90a4ae, #b0bec5);
-      color: white;
-      box-shadow: 0 5px 15px rgba(120, 144, 156, 0.4);
-    }
-
-    .btn-no:hover {
-      background: linear-gradient(45deg, #607d8b, #78909c, #90a4ae);
-      box-shadow: 0 8px 20px rgba(120, 144, 156, 0.6);
-    }
-
-    /* Response Messages */
-    .response-message {
-      display: none;
-      position: fixed;
-      top: 60%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: rgba(255, 255, 255, 0.95);
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-      z-index: 9999;
-      text-align: center;
-      max-width: 500px;
-      animation: popIn 0.5s ease-out;
-    }
-
-    @keyframes popIn {
-      0% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.5);
-      }
-      100% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-      }
-    }
-
-    .response-message h3 {
-      color: #ff6b81;
-      margin-bottom: 15px;
-      font-size: 1.5rem;
-    }
-
-    .response-message p {
-      color: #333;
-      line-height: 1.6;
-      margin-bottom: 10px;
-    }
-
-    .sad-response h3 {
-      color: #78909c;
-    }
-
-    .flying-heart,
-    .flying-img {
-      position: fixed;
-      left: 0;
-      top: 0;
-      pointer-events: none;
-      z-index: 10;
-      opacity: 0.8;
-      animation: flyHeartFull 4.5s linear forwards;
-      will-change: transform, opacity;
-    }
-
-    .flying-heart {
-      font-size: 2rem;
-    }
-
-    .flying-img img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      box-shadow: 0 2px 8px #ff6b81;
-      object-fit: cover;
-      border: 2px solid #fff;
-      background: #fff;
-      display: block;
-    }
-
-    @keyframes flyHeartFull {
-      0% {
-        transform: translateY(-50px) scale(1) rotate(-10deg);
-        opacity: 0.8;
-      }
-
-      20% {
-        opacity: 1;
-      }
-
-      90% {
-        opacity: 1;
-      }
-
-      100% {
-        transform: translateY(110vh) scale(1.4) rotate(20deg);
-        opacity: 0;
-      }
-    }
-
-    /* Ẩn các thành phần chuyển ảnh */
-    .upload-btn,
-    .image-flow-container,
-    #imageInput,
-    .floating-hearts,
-    .heart {
-      display: none !important;
-    }
-
-    /* Firework effect */
-    .firework {
-      position: absolute;
-      pointer-events: none;
-      border-radius: 50%;
-      width: 8px;
-      height: 8px;
-      background: #fff;
-      box-shadow: 0 0 10px 2px #ff6b81, 0 0 20px 8px #fff0f5;
-      animation: explode 0.8s ease-out forwards;
-      z-index: 999;
-    }
-
-    @keyframes explode {
-      0% {
-        opacity: 1;
-        transform: scale(1);
-      }
-
-      80% {
-        opacity: 1;
-      }
-
-      100% {
-        opacity: 0;
-        transform: scale(2);
-      }
-    }
-
-    /* Enhanced Firework Effects */
-    .celebration-firework {
-      position: absolute;
-      bottom: 0;
-      width: 6px;
-      height: 25px;
-      animation: celebrationShoot 1.2s ease-out forwards;
-      z-index: 1;
-    }
-
-    @keyframes celebrationShoot {
-      0% { transform: translateY(0); opacity: 1; }
-      100% { transform: translateY(var(--height)); opacity: 0; }
-    }
-
-    .celebration-center {
-      position: absolute;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background-color: white;
-      opacity: 1;
-      transform: translate(-50%, -50%);
-      animation: celebrationFadeCenter 0.3s linear forwards;
-      z-index: 1;
-    }
-
-    @keyframes celebrationFadeCenter {
-      0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-      100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1.5); }
-    }
-
-    .celebration-ray {
-      position: absolute;
-      width: 2px;
-      height: 0px;
-      background: linear-gradient(to bottom, currentColor, transparent);
-      border-radius: 0;
-      opacity: 1;
-      transform-origin: top center;
-      animation: realisticStretch 2s ease-out forwards;
-      filter: drop-shadow(0 0 3px currentColor);
-      z-index: 1;
-    }
-
-    @keyframes realisticStretch {
-      0% { 
-        height: 0px; 
-        opacity: 1; 
-        transform: rotate(var(--angle)) scaleY(0);
-      }
-      20% { 
-        height: var(--length); 
-        opacity: 1;
-        transform: rotate(var(--angle)) scaleY(1);
-      }
-      40% {
-        height: var(--length);
-        opacity: 0.9;
-        transform: rotate(var(--angle)) scaleY(1) translateY(10px);
-      }
-      70% {
-        height: calc(var(--length) * 0.8);
-        opacity: 0.6;
-        transform: rotate(var(--angle)) scaleY(0.8) translateY(25px);
-      }
-      100% { 
-        height: calc(var(--length) * 0.3);
-        opacity: 0;
-        transform: rotate(var(--angle)) scaleY(0.3) translateY(40px);
-      }
-    }
-
-    .spark-particle {
-      position: absolute;
-      width: 3px;
-      height: 3px;
-      background: currentColor;
-      border-radius: 50%;
-      opacity: 1;
-      animation: sparkFall 1.5s ease-in forwards;
-      z-index: 1;
-    }
-
-    @keyframes sparkFall {
-      0% {
-        opacity: 1;
-        transform: translateY(0px) translateX(0px) scale(1);
-      }
-      50% {
-        opacity: 0.8;
-        transform: translateY(30px) translateX(var(--drift-x)) scale(0.8);
-      }
-      100% {
-        opacity: 0;
-        transform: translateY(80px) translateX(var(--drift-x-end)) scale(0.3);
-      }
-    }
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    text-align: center;
+    max-width: 600px;
+    width: 80%;
+    animation: popIn 0.5s ease-out;
+  }
+  }
