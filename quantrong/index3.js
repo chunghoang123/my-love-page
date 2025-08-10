@@ -222,7 +222,13 @@
         setTimeout(() => imgDiv.remove(), duration * 1000 + 500);
       }
     }
-    setInterval(createFallingHeartOrImg, 800); // Tăng từ 180ms lên 800ms
+    setInterval(createFallingHeartOrImg, 200); // Tăng từ 180ms lên 800ms
+    setInterval(() => {
+  for (let i = 0; i < 3; i++) { // mỗi lần tạo 3 ảnh
+    createFlyingHeart();
+  }
+}, 200);
+
 
     function spawnIcon() {
       const icon = document.createElement('div');
