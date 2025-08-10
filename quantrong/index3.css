@@ -411,7 +411,7 @@
     }
   }
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 500px) {
     .neon-text {
       font-size: 2rem;
       /* Giảm kích thước tiêu đề */
